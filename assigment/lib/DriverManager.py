@@ -1,3 +1,5 @@
+"""D"""
+
 from robot.api import logger
 from robot.api.deco import keyword
 from selenium.webdriver.firefox import webdriver
@@ -7,11 +9,13 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 
 
 class DriverManager:
+    """Driver manager class for the browsers"""
     def __init__(self):
         pass
 
     @keyword("Get Chrome driver Path")
     def get_chromedriver_path(self, version=None):
+        """Google chrome drivermanger"""
         if version is None:
             driver_path = ChromeDriverManager().install()
         else:
@@ -22,16 +26,19 @@ class DriverManager:
 
     @keyword("Get firefox driver path")
     def get_firefoxdriver_path(self):
+        """Firefox Drivermanger"""
         driver_path = GeckoDriverManager().install()
         return driver_path
 
     @keyword("Get edge driver path")
     def get_edge_driver_path(self):
+        """Edge Drivermanger"""
         driver_path = EdgeChromiumDriverManager().install()
         return driver_path
 
     @keyword("Create firefox profile")
     def create_firefox_profile(self):
+        """Firefox profile preferences"""
         profile = webdriver.FirefoxProfile()
         profile.set_preference('browser.download.folderList', 2)
         profile.set_preference('browser.download.manager.showWhenStarting', False)

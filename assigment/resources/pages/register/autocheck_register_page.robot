@@ -2,9 +2,6 @@
 Library    SeleniumLibrary
 Resource    ../../utilities/utilities.robot
 
-
-
-
 *** Variables ***
 ${CREATE_ACC_XPATH}    //h1[contains(text(),'Create Account')]
 ${REG_FIRST_NAME_XPATH}    //input[@type='firstname']
@@ -16,7 +13,6 @@ ${REG_REF_CODE_XPATH}     //input[@name='referrer_code']
 ${REG_BUTTON}     //button[@type='submit']
 ${RETURN_HOMEPAGE_BTN}    //div[@class='sign-up'][contains(.,'Return to home page')]
 ${SUCCESS_TEXT_XPATH}    //span[contains(text(),'XXX')]
-
 
 
 *** Keywords ***

@@ -3,18 +3,10 @@ Library  SeleniumLibrary
 Library   /home/jonathan/PycharmProjects/Autocheck/assigment/lib/PreConfig.py   WITH NAME    CONF
 Library   /home/jonathan/PycharmProjects/Autocheck/assigment/lib/DriverManager.py   WITH NAME    DriverManager
 Variables  /home/jonathan/PycharmProjects/Autocheck/assigment/variables/config.py
+
 *** Variables ***
-@{_tmp}
-    ...  browserName: chrome,
-    ...  platform: WIN10,
-    ...  platformName: windows,
-    ...  version: latest,
-    ...  username: USERNAME,
-    ...  accessKey: ACCESSKEY,
-    ...  video: True
 
 ${chrome_node_version}    102.0.5005.61
-
 
 *** Keywords ***
 User launches the browser
