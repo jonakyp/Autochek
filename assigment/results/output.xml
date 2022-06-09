@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.5 on linux)" generated="20220608 20:38:39.212" rpa="false" schemaversion="3">
+<suite id="s1" name="Login" source="/home/jonathan/PycharmProjects/Autocheck/assigment/test/login">
+<suite id="s1-s1" name="Web Autocheck Register" source="/home/jonathan/PycharmProjects/Autocheck/assigment/test/login/web_autocheck_register.robot">
+<test id="s1-s1-t1" name="AC-01 Web: Creating an account using the sign up form" line="11">
+<kw name="User launches the browser" type="SETUP">
+<msg timestamp="20220608 20:38:39.375" level="FAIL">User keyword 'User launches the browser' contains no keywords.</msg>
+<status status="FAIL" starttime="20220608 20:38:39.375" endtime="20220608 20:38:39.376"/>
+</kw>
+<doc>This will test succesfull user registration</doc>
+<tag>@smoke @AC-01</tag>
+<status status="FAIL" starttime="20220608 20:38:39.374" endtime="20220608 20:38:39.376">Setup failed:
+User keyword 'User launches the browser' contains no keywords.</status>
+</test>
+<doc>This is a POC for Autocheck</doc>
+<status status="FAIL" starttime="20220608 20:38:39.232" endtime="20220608 20:38:39.377"/>
+</suite>
+<status status="FAIL" starttime="20220608 20:38:39.214" endtime="20220608 20:38:39.377"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">@smoke @AC-01</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Login">Login</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Web Autocheck Register">Login.Web Autocheck Register</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220608 20:38:39.349" level="ERROR">Error in file '/home/jonathan/PycharmProjects/Autocheck/assigment/resources/actions/homepage/homepage_actions.robot' on line 7: Setting variable '${EXPECTED_TITLE} autocheck' failed: Invalid variable name '${EXPECTED_TITLE} autocheck'.</msg>
+</errors>
+</robot>

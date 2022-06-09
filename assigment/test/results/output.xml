@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.5 on linux)" generated="20220609 09:46:12.244" rpa="false" schemaversion="3">
+<suite id="s1" name="Register" source="/home/jonathan/PycharmProjects/Autocheck/assigment/test/register">
+<suite id="s1-s1" name="Web Autocheck Register" source="/home/jonathan/PycharmProjects/Autocheck/assigment/test/register/web_autocheck_register.robot">
+<test id="s1-s1-t1" name="AC-01 Web: Creating an account using the sign up form" line="18">
+<kw name="User launches the browser" library="browser_actions" type="SETUP">
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>0.2</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220609 09:46:12.473" endtime="20220609 09:46:12.473"/>
+</kw>
+<kw name="Get Environment URL" library="CONF">
+<var>${URL}</var>
+<msg timestamp="20220609 09:46:12.474" level="INFO">env : Stage</msg>
+<msg timestamp="20220609 09:46:12.474" level="INFO">${URL} = https://marketplace.staging.myautochek.com/ng</msg>
+<status status="PASS" starttime="20220609 09:46:12.473" endtime="20220609 09:46:12.474"/>
+</kw>
+<kw name="Get random browser" library="CONF">
+<var>${browser}</var>
+<msg timestamp="20220609 09:46:12.474" level="INFO">${browser} = chrome</msg>
+<status status="PASS" starttime="20220609 09:46:12.474" endtime="20220609 09:46:12.474"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${browser}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220609 09:46:12.474" endtime="20220609 09:46:12.474"/>
+</kw>
+<kw name="Get Chrome driver Path" library="DriverManager">
+<var>${path}</var>
+<msg timestamp="20220609 09:46:12.475" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20220609 09:46:12.518" level="INFO">Current google-chrome version is 101.0.4951</msg>
+<msg timestamp="20220609 09:46:12.518" level="INFO">Get LATEST chromedriver version for 101.0.4951 google-chrome</msg>
+<msg timestamp="20220609 09:46:12.879" level="INFO">Driver [/home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver] found in cache</msg>
+<msg timestamp="20220609 09:46:12.879" level="INFO">Driver path /home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver</msg>
+<msg timestamp="20220609 09:46:12.880" level="INFO">${path} = /home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver</msg>
+<status status="PASS" starttime="20220609 09:46:12.475" endtime="20220609 09:46:12.880"/>
+</kw>
+<if>
+<branch type="IF" condition="'${USE_GRID}'=='True'">
+<kw name="Launch browsers on grid" library="browser_actions">
+<arg>${browser}</arg>
+<arg>${URL}</arg>
+<status status="NOT RUN" starttime="20220609 09:46:12.882" endtime="20220609 09:46:12.882"/>
+</kw>
+<status status="NOT RUN" starttime="20220609 09:46:12.881" endtime="20220609 09:46:12.882"/>
+</branch>
+<branch type="ELSE">
+<kw name="Launch browsers via manager" library="browser_actions">
+<arg>${browser}</arg>
+<arg>${URL}</arg>
+<if>
+<branch type="IF" condition="'${browser}'=='chrome'">
+<kw name="Get Chrome driver Path" library="DriverManager">
+<var>${path}</var>
+<msg timestamp="20220609 09:46:12.888" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20220609 09:46:12.937" level="INFO">Current google-chrome version is 101.0.4951</msg>
+<msg timestamp="20220609 09:46:12.938" level="INFO">Get LATEST chromedriver version for 101.0.4951 google-chrome</msg>
+<msg timestamp="20220609 09:46:13.371" level="INFO">Driver [/home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver] found in cache</msg>
+<msg timestamp="20220609 09:46:13.371" level="INFO">Driver path /home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver</msg>
+<msg timestamp="20220609 09:46:13.371" level="INFO">${path} = /home/jonathan/.wdm/drivers/chromedriver/linux64/101.0.4951.41/chromedriver</msg>
+<status status="PASS" starttime="20220609 09:46:12.887" endtime="20220609 09:46:13.371"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>browser=${browser}</arg>
+<arg>executable_path=${path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220609 09:46:13.373" level="INFO">Opening browser 'chrome' to base url 'https://marketplace.staging.myautochek.com/ng'.</msg>
+<status status="PASS" starttime="20220609 09:46:13.372" endtime="20220609 09:46:42.908"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:12.884" endtime="20220609 09:46:42.908"/>
+</branch>
+<branch type="ELSE IF" condition="'${browser}'=='firefox'">
+<kw name="Create firefox profile" library="DriverManager">
+<var>${profile_path}</var>
+<status status="NOT RUN" starttime="20220609 09:46:42.910" endtime="20220609 09:46:42.910"/>
+</kw>
+<kw name="Get firefox driver path" library="DriverManager">
+<var>${path}</var>
+<status status="NOT RUN" starttime="20220609 09:46:42.911" endtime="20220609 09:46:42.911"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>browser=${browser}</arg>
+<arg>executable_path=${path}</arg>
+<arg>ff_profile_dir=${profile_path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20220609 09:46:42.911" endtime="20220609 09:46:42.912"/>
+</kw>
+<status status="NOT RUN" starttime="20220609 09:46:42.909" endtime="20220609 09:46:42.912"/>
+</branch>
+<branch type="ELSE IF" condition="'${browser}'=='edge'">
+<kw name="Get edge driver path" library="DriverManager">
+<var>${path}</var>
+<status status="NOT RUN" starttime="20220609 09:46:42.912" endtime="20220609 09:46:42.913"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>browser=${browser}</arg>
+<arg>executable_path=${path}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" starttime="20220609 09:46:42.913" endtime="20220609 09:46:42.913"/>
+</kw>
+<status status="NOT RUN" starttime="20220609 09:46:42.912" endtime="20220609 09:46:42.914"/>
+</branch>
+<status status="PASS" starttime="20220609 09:46:12.884" endtime="20220609 09:46:42.914"/>
+</if>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${url}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220609 09:46:42.914" endtime="20220609 09:46:42.917"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:12.883" endtime="20220609 09:46:42.919"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:12.882" endtime="20220609 09:46:42.919"/>
+</branch>
+<status status="PASS" starttime="20220609 09:46:12.880" endtime="20220609 09:46:42.919"/>
+</if>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220609 09:46:42.920" endtime="20220609 09:46:43.258"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:12.473" endtime="20220609 09:46:43.259"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${first_name}</var>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220609 09:46:43.261" level="INFO">${first_name} = KR40WTux</msg>
+<status status="PASS" starttime="20220609 09:46:43.260" endtime="20220609 09:46:43.261"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${last_name}</var>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220609 09:46:43.263" level="INFO">${last_name} = 19pcxQHJ</msg>
+<status status="PASS" starttime="20220609 09:46:43.262" endtime="20220609 09:46:43.263"/>
+</kw>
+<kw name="Random Email" library="RANGEN">
+<var>${random_email}</var>
+<msg timestamp="20220609 09:46:43.265" level="INFO">${random_email} = fdGQSRNZfq@endtest-mail.io</msg>
+<status status="PASS" starttime="20220609 09:46:43.264" endtime="20220609 09:46:43.265"/>
+</kw>
+<kw name="Random Ng Phone Digits" library="RANGEN">
+<var>${phone_number}</var>
+<msg timestamp="20220609 09:46:43.267" level="INFO">${phone_number} = 4764808214</msg>
+<status status="PASS" starttime="20220609 09:46:43.266" endtime="20220609 09:46:43.268"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${password}</var>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220609 09:46:43.269" level="INFO">${password} = JQ2GnDD5</msg>
+<status status="PASS" starttime="20220609 09:46:43.268" endtime="20220609 09:46:43.270"/>
+</kw>
+<kw name="Generate Random String" library="String">
+<var>${referral_code}</var>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220609 09:46:43.271" level="INFO">${referral_code} = uHPwsai3</msg>
+<status status="PASS" starttime="20220609 09:46:43.270" endtime="20220609 09:46:43.271"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${first_name_sv}</arg>
+<arg>${first_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220609 09:46:43.274" level="INFO">${first_name_sv} = KR40WTux</msg>
+<status status="PASS" starttime="20220609 09:46:43.272" endtime="20220609 09:46:43.274"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${last_name_sv}</arg>
+<arg>${last_name}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220609 09:46:43.276" level="INFO">${last_name_sv} = 19pcxQHJ</msg>
+<status status="PASS" starttime="20220609 09:46:43.274" endtime="20220609 09:46:43.276"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${email_sv}</arg>
+<arg>${random_email}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220609 09:46:43.278" level="INFO">${email_sv} = fdGQSRNZfq@endtest-mail.io</msg>
+<status status="PASS" starttime="20220609 09:46:43.277" endtime="20220609 09:46:43.278"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${password_sv}</arg>
+<arg>${password}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20220609 09:46:43.281" level="INFO">${password_sv} = JQ2GnDD5</msg>
+<status status="PASS" starttime="20220609 09:46:43.279" endtime="20220609 09:46:43.281"/>
+</kw>
+<kw name="Given User is on the homepage" library="homepage_actions">
+<kw name="Wait until Page loads" library="utilities">
+<kw name="Wait For Condition" library="SeleniumLibrary">
+<arg>return document.readyState=="complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" starttime="20220609 09:46:43.285" endtime="20220609 09:46:43.508"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:43.284" endtime="20220609 09:46:43.509"/>
+</kw>
+<kw name="Verify presence autocheck logo homepage" library="autocheck_homepage_page">
+<kw name="Page Should Contain Image" library="SeleniumLibrary">
+<arg>${AUTOCHECK_LOGO}</arg>
+<arg>timeout=60</arg>
+<doc>Verifies image identified by ``locator`` is found from current page.</doc>
+<msg timestamp="20220609 09:46:43.978" level="INFO">Current page contains image '//img[@src='https://media.autochek.africa/file/publicAssets/full-color-logo-new.png']'.</msg>
+<status status="PASS" starttime="20220609 09:46:43.512" endtime="20220609 09:46:43.978"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:43.510" endtime="20220609 09:46:43.979"/>
+</kw>
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${title}</var>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20220609 09:46:44.198" level="INFO">${title} = Autochek: Buy &amp; Sell Cars in Nigeria | Find New &amp; Old Cars</msg>
+<status status="PASS" starttime="20220609 09:46:43.980" endtime="20220609 09:46:44.198"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${title}</arg>
+<arg>${HP_EXPECTED_TITLE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220609 09:46:44.199" endtime="20220609 09:46:44.200"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:43.283" endtime="20220609 09:46:44.201"/>
+</kw>
+<kw name="And User clicks on the Register Link" library="homepage_actions">
+<kw name="clicks on register link" library="autocheck_homepage_page">
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${HP_REGISTER_LINK}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:44.207" level="INFO">Clicking link 'Register'.</msg>
+<status status="PASS" starttime="20220609 09:46:44.206" endtime="20220609 09:46:47.627"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:44.204" endtime="20220609 09:46:47.628"/>
+</kw>
+<kw name="Wait until Page loads" library="utilities">
+<kw name="Wait For Condition" library="SeleniumLibrary">
+<arg>return document.readyState=="complete"</arg>
+<doc>Waits until ``condition`` is true or ``timeout`` expires.</doc>
+<status status="PASS" starttime="20220609 09:46:47.630" endtime="20220609 09:46:47.848"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:47.629" endtime="20220609 09:46:47.849"/>
+</kw>
+<kw name="Verify presence create account text" library="autocheck_register_page">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${CREATE_ACC_XPATH}</arg>
+<arg>Create Account</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220609 09:46:47.854" level="INFO">Verifying element '//h1[contains(text(),'Create Account')]' contains exact text 'Create Account'.</msg>
+<status status="PASS" starttime="20220609 09:46:47.852" endtime="20220609 09:46:48.345"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:47.850" endtime="20220609 09:46:48.346"/>
+</kw>
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${title}</var>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20220609 09:46:48.560" level="INFO">${title} = Register | AutoChek</msg>
+<status status="PASS" starttime="20220609 09:46:48.346" endtime="20220609 09:46:48.560"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${title}</arg>
+<arg>${REG_EXPECTED_TITLE}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20220609 09:46:48.560" endtime="20220609 09:46:48.562"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:44.202" endtime="20220609 09:46:48.563"/>
+</kw>
+<kw name="And User inserts random First Name and Last Name" library="register_actions">
+<arg>${first_name}</arg>
+<arg>${last_name}</arg>
+<kw name="User enters the first name" library="autocheck_register_page">
+<arg>${first_name}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${REG_FIRST_NAME_XPATH}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:48.568" level="INFO">Typing text 'KR40WTux' into text field '//input[@type='firstname']'.</msg>
+<status status="PASS" starttime="20220609 09:46:48.567" endtime="20220609 09:46:49.442"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:48.565" endtime="20220609 09:46:49.442"/>
+</kw>
+<kw name="User enters the last name" library="autocheck_register_page">
+<arg>${last_name}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${REG_LAST_NAME_XPATH}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:49.443" level="INFO">Typing text '19pcxQHJ' into text field '//input[@type='lastname']'.</msg>
+<status status="PASS" starttime="20220609 09:46:49.442" endtime="20220609 09:46:50.208"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:49.442" endtime="20220609 09:46:50.209"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:48.563" endtime="20220609 09:46:50.209"/>
+</kw>
+<kw name="And User inserts a valid Email Address" library="register_actions">
+<arg>${random_email}</arg>
+<kw name="User enters an email address" library="autocheck_register_page">
+<arg>${random_email}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${REG_EMAIL_XPATH}</arg>
+<arg>${random_email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:50.215" level="INFO">Typing text 'fdGQSRNZfq@endtest-mail.io' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20220609 09:46:50.213" endtime="20220609 09:46:51.098"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:50.211" endtime="20220609 09:46:51.099"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:50.210" endtime="20220609 09:46:51.100"/>
+</kw>
+<kw name="And User inserts a valid Phone number" library="register_actions">
+<arg>${phone_number}</arg>
+<kw name="User enters phone number" library="autocheck_register_page">
+<arg>${phone_number}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${REG_TEL_XPATH}</arg>
+<arg>${phone_number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:51.106" level="INFO">Typing text '4764808214' into text field '//input[contains(@type,'tel')]'.</msg>
+<status status="PASS" starttime="20220609 09:46:51.104" endtime="20220609 09:46:51.882"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:51.102" endtime="20220609 09:46:51.883"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:51.101" endtime="20220609 09:46:51.883"/>
+</kw>
+<kw name="And User inserts a valid Password" library="register_actions">
+<arg>${password}</arg>
+<kw name="User enters password" library="autocheck_register_page">
+<arg>${password}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${REG_PASSWORD_XPATH}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:51.889" level="INFO">Typing password into text field '//input[@type='password']'.</msg>
+<msg timestamp="20220609 09:46:52.411" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220609 09:46:52.727" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220609 09:46:51.888" endtime="20220609 09:46:52.727"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:51.887" endtime="20220609 09:46:52.728"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:51.885" endtime="20220609 09:46:52.728"/>
+</kw>
+<kw name="And User inserts a valid Referral Code" library="register_actions">
+<arg>${referral_code}</arg>
+<kw name="User enters Referral Code" library="autocheck_register_page">
+<arg>${referral_code}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${REG_REF_CODE_XPATH}</arg>
+<arg>${referral_code}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:52.736" level="INFO">Typing text 'uHPwsai3' into text field '//input[@name='referrer_code']'.</msg>
+<status status="PASS" starttime="20220609 09:46:52.734" endtime="20220609 09:46:53.591"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:52.732" endtime="20220609 09:46:53.592"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:52.730" endtime="20220609 09:46:53.593"/>
+</kw>
+<kw name="When User clicks on the Register button" library="register_actions">
+<arg>${email_sv}</arg>
+<kw name="User clicks register button" library="autocheck_register_page">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${REG_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220609 09:46:53.599" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220609 09:46:53.597" endtime="20220609 09:46:54.954"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:53.596" endtime="20220609 09:46:54.955"/>
+</kw>
+<kw name="Verify presence return homepage button and email registered" library="autocheck_register_page">
+<arg>${email_sv}</arg>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${RETURN_HOMEPAGE_BTN}</arg>
+<arg>timeout=60</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220609 09:46:54.957" endtime="20220609 09:46:57.421"/>
+</kw>
+<kw name="Get updated xpath" library="utilities">
+<var>${SUCCESS_TEXT_XPATH}</var>
+<arg>xpath=${SUCCESS_TEXT_XPATH}</arg>
+<arg>text=${email_sv}</arg>
+<kw name="Replace String" library="String">
+<var>${xpath}</var>
+<arg>${xpath}</arg>
+<arg>${dynamic_string}</arg>
+<arg>${text}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20220609 09:46:57.427" level="INFO">${xpath} = //span[contains(text(),'fdGQSRNZfq@endtest-mail.io')]</msg>
+<status status="PASS" starttime="20220609 09:46:57.426" endtime="20220609 09:46:57.427"/>
+</kw>
+<msg timestamp="20220609 09:46:57.428" level="INFO">${SUCCESS_TEXT_XPATH} = //span[contains(text(),'fdGQSRNZfq@endtest-mail.io')]</msg>
+<status status="PASS" starttime="20220609 09:46:57.422" endtime="20220609 09:46:57.428"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${SUCCESS_TEXT_XPATH}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220609 09:46:57.428" endtime="20220609 09:46:57.430"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${SUCCESS_TEXT_XPATH}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220609 09:46:57.430" endtime="20220609 09:46:57.921"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:54.955" endtime="20220609 09:46:57.922"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:53.594" endtime="20220609 09:46:57.922"/>
+</kw>
+<kw name="Then User should be registered succesfully" library="register_actions">
+<msg timestamp="20220609 09:46:57.925" level="FAIL">User keyword 'Then User should be registered succesfully' contains no keywords.</msg>
+<status status="FAIL" starttime="20220609 09:46:57.923" endtime="20220609 09:46:57.925"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220609 09:46:57.926" endtime="20220609 09:46:57.926"/>
+</kw>
+<kw name="User closes the browser" library="browser_actions" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220609 09:46:57.930" endtime="20220609 09:46:58.194"/>
+</kw>
+<status status="PASS" starttime="20220609 09:46:57.929" endtime="20220609 09:46:58.195"/>
+</kw>
+<doc>This will test succesfull user registration</doc>
+<tag>@smoke @AC-01</tag>
+<status status="FAIL" starttime="20220609 09:46:12.472" endtime="20220609 09:46:58.196">User keyword 'Then User should be registered succesfully' contains no keywords.</status>
+</test>
+<doc>This is a POC for Autocheck</doc>
+<status status="FAIL" starttime="20220609 09:46:12.265" endtime="20220609 09:46:58.199"/>
+</suite>
+<status status="FAIL" starttime="20220609 09:46:12.245" endtime="20220609 09:46:58.206"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">@smoke @AC-01</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Register">Register</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Web Autocheck Register">Register.Web Autocheck Register</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
