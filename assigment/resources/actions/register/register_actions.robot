@@ -1,8 +1,7 @@
 
 *** Settings ***
 Library    SeleniumLibrary
-
-Library    /home/jonathan/PycharmProjects/Autocheck/assigment/lib/RandomGen.py    WITH NAME    RANGEN
+Library    ../../../lib/RandomGen.py    WITH NAME    RANGEN
 Resource    ../../pages/register/autocheck_register_page.robot
 
 
