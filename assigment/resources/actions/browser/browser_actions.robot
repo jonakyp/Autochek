@@ -33,7 +33,7 @@ Launch browsers via manager
     [Arguments]    ${browser}    ${url}
     IF    '${browser}'=='chrome'
         ${path}=    DriverManager.Get Chrome driver Path
-        Open Browser    ${url}    browser=${browser}    executable_path=${path}    options=add_argument("--disable-dev-shm-usage"); add_argument("--headless")
+        Open Browser    ${url}    browser=${browser}    executable_path=${path}    options=add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage"); add_argument("--headless")
     ELSE IF    '${browser}'=='firefox'
         ${profile_path}=    DriverManager.Create firefox profile
         ${path}=    DriverManager.Get firefox driver path
