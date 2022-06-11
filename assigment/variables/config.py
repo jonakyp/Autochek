@@ -7,4 +7,4 @@ cwd = os.getcwd()
 
 ENVIRONMENT = 'Stage'
 USE_GRID = 'False'
-SELENIUM_GRID = 'localhost'
+SELENIUM_GRID = 'http://localhost:4444/wd/hub'
