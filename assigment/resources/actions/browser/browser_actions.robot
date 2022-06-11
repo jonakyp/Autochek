@@ -1,8 +1,8 @@
 *** Settings ***
 Library  SeleniumLibrary
-Library   /home/jonathan/PycharmProjects/Autocheck/assigment/lib/PreConfig.py   WITH NAME    CONF
-Library   /home/jonathan/PycharmProjects/Autocheck/assigment/lib/DriverManager.py   WITH NAME    DriverManager
-Variables  /home/jonathan/PycharmProjects/Autocheck/assigment/variables/config.py
+Library   ../../../lib/PreConfig.py   WITH NAME    CONF
+Library   ../../../lib/DriverManager.py   WITH NAME    DriverManager
+Variables    ../../../../assigment/variables/config.py
 
 *** Variables ***
 
