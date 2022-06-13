@@ -32,4 +32,6 @@ User selecting different countries
     should contain    ${title}    ${country}
     ${HP_COUNTRTY_TITLE}=    get text    ${HP_COUNTRTY_TITLE}
     should contain    ${HP_COUNTRTY_TITLE}    ${country}
+    click continue button if present
+
 

@@ -8,7 +8,7 @@ from robot.libraries.BuiltIn import BuiltIn
 class PreConfig:
     """Necessary configurations to be done before testrun"""
     # insert choice of browsers in the list
-    browsers = ['chrome']
+    browsers = ['chrome', 'firefox', 'edge']
 
     def __init__(self):
         pass
