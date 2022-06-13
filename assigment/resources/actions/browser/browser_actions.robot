@@ -5,7 +5,6 @@ Library   ../../../lib/DriverManager.py   WITH NAME    DriverManager
 Variables    ../../../../assigment/variables/config.py
 
 *** Variables ***
-
 ${chrome_node_version}    102.0.5005.61
 
 *** Keywords ***
@@ -26,14 +25,14 @@ User launches the browser
 Launch browsers on grid
     [Arguments]    ${browser}    ${url}
     ${path}=    Get Chrome driver Path    ${chrome_node_version}
-    Open Browser    ${url}    browser=chrome    remote_url=${SELENIUM_GRID}    executable_path=${path}
+    Open Browser    ${url}    browser=edge    remote_url=${SELENIUM_GRID}    executable_path=${path}
 
 
 Launch browsers via manager
     [Arguments]    ${browser}    ${url}
     IF    '${browser}'=='chrome'
         ${path}=    DriverManager.Get Chrome driver Path
-        Open Browser    ${url}    browser=${browser}    executable_path=${path}    options=add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage"); add_argument("--headless")
+        Open Browser    ${url}    browser=${browser}    executable_path=${path}
     ELSE IF    '${browser}'=='firefox'
         ${profile_path}=    DriverManager.Create firefox profile
         ${path}=    DriverManager.Get firefox driver path

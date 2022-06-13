@@ -1,3 +1,5 @@
+#Behaviour-driven style
+
 *** Settings ***
 Documentation  This is a POC for Autocheck
 Library  SeleniumLibrary
@@ -22,8 +24,8 @@ AC-01 Web: Creating an account using the sign up form
     set global variable   ${email_sv}     ${random_email}
     set global variable    ${password_sv}    ${password}
 
-    [Documentation]  This will test succesfull user registration
-    [Tags]  @smoke @AC-01
+    [Documentation]    This will test succesfull user registration
+    [Tags]    @smoke    @AC-01
     [Setup]    User launches the browser
     Given User is on the homepage
     And User clicks on the Register Link

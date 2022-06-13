@@ -15,7 +15,7 @@ class PreConfig:
 
     @keyword("Get Environment URL")
     def initialise_automation_url(self):
-        """Select Enviroment and URL to be used in testrun"""
+        """Select Environment and URL to be used in testrun"""
         env = BuiltIn().get_variable_value("${ENVIRONMENT}")
         logger.info("env : " + env)
         if env == 'Stage':

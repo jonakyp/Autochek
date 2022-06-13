@@ -15,7 +15,7 @@ class DriverManager:
 
     @keyword("Get Chrome driver Path")
     def get_chromedriver_path(self, version=None):
-        """Google chrome drivermanger"""
+        """Google chrome driver manager"""
         if version is None:
             driver_path = ChromeDriverManager().install()
         else:
@@ -26,13 +26,14 @@ class DriverManager:
 
     @keyword("Get firefox driver path")
     def get_firefoxdriver_path(self):
-        """Firefox Drivermanger"""
+        """Firefox Driver manager"""
         driver_path = GeckoDriverManager().install()
+        logger.info("Driver path " + driver_path)
         return driver_path
 
     @keyword("Get edge driver path")
     def get_edge_driver_path(self):
-        """Edge Drivermanger"""
+        """Edge Driver manager"""
         driver_path = EdgeChromiumDriverManager().install()
         return driver_path
 

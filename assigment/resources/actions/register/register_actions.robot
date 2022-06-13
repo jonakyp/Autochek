@@ -2,7 +2,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ../../../lib/RandomGen.py    WITH NAME    RANGEN
-Resource    ../../pages/register/autocheck_register_page.robot
+Resource    ../../pages/register/autochek_register_page.robot
 
 
 *** Variables ***
