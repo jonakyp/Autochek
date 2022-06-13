@@ -36,7 +36,6 @@ AC-01 Web: Creating an account using the sign up form
     And User inserts a valid Referral Code    ${referral_code}
     When User clicks on the Register button
     Then User should be registered succesfully    ${email_sv}
-    sleep    5
     [Teardown]    User closes the browser
 
 *** Keywords ***
